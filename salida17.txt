@@ -1,0 +1,10 @@
+entrada17.txt
+error17.txt
+error.txt
+nuevo
+out
+PSP2122.iml
+salida17.txt
+salida.txt
+script.sh
+src
