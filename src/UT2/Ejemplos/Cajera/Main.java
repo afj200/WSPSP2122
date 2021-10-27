@@ -8,9 +8,21 @@ public class Main {
         Cajera cajera1 = new Cajera("Cajera 1");
         Cajera cajera2 = new Cajera("Cajera 2");
 
-        long initialTime = System.currentTimeMillis();
+        //long initialTime = System.currentTimeMillis();
 
-        cajera1.procesarCompra(cliente, initialTime);
-        cajera2.procesarCompra(cliente2, initialTime);
+        //cajera1.procesarCompra(cliente, initialTime);
+        //cajera2.procesarCompra(cliente2, initialTime);
+
+        ProcesaCompra hilo1 = new ProcesaCompra(cajera1, cliente);
+        ProcesaCompra hilo2 = new ProcesaCompra(cajera2, cliente2);
+
+        hilo1.start();
+        hilo2.start();
+
+
+
+        //RESULTADOS SIN HILOS: CLIENTE 1: 15 SEG     CLIENTE 2: 26SEG(16SEG)
+
+        //RESULTADOS CON HILOS: CLIENTE 1: 11 SEG   CLIENTE 2; 15SEG(4SEG)
     }
 }

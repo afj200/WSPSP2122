@@ -1,6 +1,6 @@
 package UT2.Ejemplos.Cajera;
 
-public class Cajera {
+public class Cajera{
     private String nombre;
 
     public Cajera(String nombre) {
@@ -25,7 +25,6 @@ public class Cajera {
             Thread.currentThread().interrupt();
         }
     }
-
 
 }
 
