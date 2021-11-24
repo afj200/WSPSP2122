@@ -11,7 +11,7 @@ import java.net.URLConnection;
 public class Ejemplo2urlCon {
     public static void main(String[] args) {
         try{
-            URL url = new URL("http://localhost/2021/vernombre.php");
+            URL url = new URL("http://localhost:8081/vernombre.php");
             URLConnection conexion = url.openConnection();
             conexion.setDoOutput(true);
 
