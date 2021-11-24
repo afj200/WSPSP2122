@@ -18,15 +18,16 @@ public class Hilo extends Observable implements Runnable {
         try{
             while(porcentaje < 100){
                 numAleatorio = generarPorcentajeAleatorio(1,15);
-                System.out.println("Porcentaje de " + nombre +" es "+ porcentaje +" ha aumentado en "+ numAleatorio);
                 porcentaje += numAleatorio;
+                //System.out.println("Porcentaje de " + nombre +" es "+ porcentaje +" ha aumentado en "+ numAleatorio);
+                System.out.println(nombre+": "+ porcentaje+"%");
                 this.setChanged();
                 this.notifyObservers();
 
                 Thread.sleep(2000);
             }
             System.out.println(nombre + "ha ganado.");
-            Thread.interrupted();
+            Main.terminar();
         }catch(InterruptedException e){
             System.out.println("Hilo interrumpido");
         }

@@ -3,6 +3,9 @@ package UT2.CompruebaTuAprendizaje.Act6;
 import java.util.Scanner;
 
 public class Main {
+    private static Thread th1;
+    private static Thread th2;
+    private static Thread th3;
     public static void main(String[] args) {
         //PREGUNTAR POR PRIORIDADES
         Scanner s = new Scanner(System.in);
@@ -18,13 +21,13 @@ public class Main {
         Hilo hilo2 = new Hilo("Hilo 2");
         Hilo hilo3 = new Hilo("Hilo 3");
 
-        Thread th1 = new Thread(hilo1);
+        th1 = new Thread(hilo1);
         th1.setPriority(th1P);
 
-        Thread th2 = new Thread(hilo2);
+        th2 = new Thread(hilo2);
         th2.setPriority(th2P);
 
-        Thread th3 = new Thread(hilo3);
+        th3 = new Thread(hilo3);
         th3.setPriority(th3P);
 
 
@@ -32,14 +35,12 @@ public class Main {
         th2.start();
         th3.start();
 
-        if(th1.isInterrupted() || th2.isInterrupted() || th3.isInterrupted()){
-            terminar(th1, th2, th3);
-        }
+
     }
 
-    public static void terminar(Thread t1 , Thread t2 , Thread t3){
-            t1.interrupt();
-            t2.interrupt();
-            t3.interrupt();
+    public static void terminar(){
+            th1.interrupt();
+            th2.interrupt();
+            th3.interrupt();
     }
 }
