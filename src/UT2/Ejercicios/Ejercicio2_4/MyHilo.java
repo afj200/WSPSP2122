@@ -20,7 +20,7 @@ public class MyHilo extends Thread{
             while(!stopHilo){
                 contador++;
                 System.out.println(contador);
-                Thread.sleep(5000);
+                Thread.sleep(3000);
                 suspender.esperandoParaReanudar();
             }
             System.out.println("Fin de bucle");

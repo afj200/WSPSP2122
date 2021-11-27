@@ -26,6 +26,7 @@ public class Fich extends Thread {
                 cont = cont + linea.length();
                 linea = br.readLine();
             }
+            Thread.sleep(cont * 100);
 
             t_fin = System.currentTimeMillis();
             long t_total = t_fin - t_comienzo;
@@ -34,6 +35,8 @@ public class Fich extends Thread {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
