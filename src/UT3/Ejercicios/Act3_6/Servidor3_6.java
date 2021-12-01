@@ -9,6 +9,8 @@ import java.util.Locale;
 
 public class Servidor3_6 {
     public static void main(String[] args) throws IOException {
+
+        //BUCLE HASTA QUE RECIBA UN *
         DatagramSocket socket = new DatagramSocket(12345);
         System.out.println("Servidor Esperando Datagrama...");
         DatagramPacket recibo;
@@ -19,7 +21,7 @@ public class Servidor3_6 {
         String mensaje = new String(recibo.getData()).trim();
         System.out.println("Servidor Recibe:" + mensaje);
         InetAddress IPOrigen = recibo.getAddress();
-        int puerto = recibo.getLength();
+        int puerto = recibo.getPort();
 
         mensaje.toUpperCase(Locale.ROOT);
 

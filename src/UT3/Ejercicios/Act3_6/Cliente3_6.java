@@ -14,7 +14,7 @@ public class Cliente3_6 {
         InetAddress IPServidor = InetAddress.getLocalHost();
         int puerto = 12345;
         String cadena = "1";
-
+        clientSocket.setSoTimeout(5000);
         do{
             System.out.println("Introduce mensaje:");
             cadena = sc.nextLine();
@@ -27,11 +27,17 @@ public class Cliente3_6 {
             byte[] recibidos = new byte[2];
             DatagramPacket recibo = new DatagramPacket(recibidos, recibidos.length);
             System.out.println("Esperando datagrama...");
-            clientSocket.receive(recibo);
 
-            byte[] hh = recibo.getData();
-            int numero = hh[0];
-            System.out.println("Recibo Nº de caracteres dque son a => "+numero);
+            try{
+                clientSocket.receive(recibo);
+
+
+                String mensaje = (recibo.getData().toString()).trim();
+                System.out.println("Mensaje recibido:"+ mensaje);
+            }catch (Exception e){
+
+            }
+
         }while (!cadena.equalsIgnoreCase("*"));
         clientSocket.close();
     }
