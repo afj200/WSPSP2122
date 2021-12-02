@@ -20,15 +20,21 @@ public class UDPObjetoCliente {
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         ObjectOutputStream out = new ObjectOutputStream(bs);
         while(num != 0){
+            //ENVIAR
             System.out.println("Introduce un número:");
             num = s.nextInt();
 
             Numeros n = new Numeros();
             n.setNumero(num);
 
+            out.reset();
             out.writeObject(n);
+            byte[] enviados = bs.toByteArray();
+            DatagramPacket paqEnviar = new DatagramPacket(enviados, enviados.length);
+            Socket.send(paqEnviar);
             System.out.println("Envio: "+ n.getNumero());
 
+            //RECIBIR
             byte[] recibidos = new byte[1024];
             DatagramPacket paqRecibido = new DatagramPacket(recibidos, recibidos.length);
             Socket.receive(paqRecibido);
